@@ -3,10 +3,10 @@ The DIY Responsive Grid
 
 The DIY Responsive Grid: examples and generators.
 
-[The Calculator](http://southlogics.github.io/diy-responsive-grid/calculator/)
-
 How?
 ----
+
+Open [the Calculator](http://southlogics.github.io/diy-responsive-grid/calculator/)
 
 First, you decide the font size.
 
