@@ -11,6 +11,7 @@
       body {
         margin: 0 auto;
         padding: 0;
+        -webkit-font-smoothing: antialiased;
       }
 
       body, input, textarea, button, select {
@@ -19,7 +20,7 @@
 
       button {
         line-height: 1.2rem;
-        border: 0;
+        border: .125rem solid black;
         padding: .3rem .6rem;
         width: 7.2rem;
         margin-left: 1.2rem;
@@ -52,6 +53,7 @@
         font-size: 2rem;
         margin: 2.4rem 0 0 0;
         line-height: 2.4rem;
+        font-weight: 900;
       }
 
       fieldset {
@@ -70,11 +72,17 @@
       form {
         float: left;
         padding-left: .6rem;
+        margin-top: -.3rem;
+        height: 1.75rem;
+      }
+
+      form span {
+        margin: 0 .4rem;
       }
 
       input {
         border: 1px solid rgba(0,0,0,.5);
-        padding: 0 .6rem;
+        padding: .3rem .6rem;
         width: 4.8rem;
         line-height: 1.2rem;
         background: transparent;
@@ -90,7 +98,7 @@
         float: left;
         padding: 0 1.2rem;
         line-height: 1.2rem;
-        margin-top: -.3rem;
+        margin-top: -.425rem;
         height: 1.2rem;
       }
 
@@ -135,6 +143,14 @@
         padding: 0;
       }
 
+      tbody tr {
+        color: #666666;
+      }
+
+      tbody tr:hover {
+        color: #000000;
+      }
+
       tr th {
         display: block;
         float: left;
@@ -162,11 +178,14 @@
       }
 
       code {
+        color: #666666;
         display: block;
         white-space: pre-wrap;
-        margin-top: 1.35rem;
+        margin-top: .15rem;
         font-size: .7rem;
         line-height: 1.2rem;
+        margin-left: 1.2rem;
+        margin-right: 1.2rem;
       }
 
       footer {
@@ -325,7 +344,8 @@
       <fieldset>
         <legend>Font size / Line height <em>(in pixels)</em></legend>
         <form>
-          <input type="number" ng-change="updateFontSize()" ng-model="fontSizeBase" placeholder="Font size (in pixels)" autofocus /> / 
+          <input type="number" ng-change="updateFontSize()" ng-model="fontSizeBase" placeholder="Font size (in pixels)" autofocus />
+          <span>/</span>
           <input type="number" ng-change="updateLineHeight()" ng-model="lineHeightBase" placeholder="Line height (in pixels)"/>
         </form>
         <aside ng-show="ratio">
@@ -370,7 +390,7 @@
       <section ng-show="enabled">
         <h3>Grid background</h3>
 
-        <p>Copy this code into your CSS to get the visual grid</p>
+        <p>Copy this code into your CSS to get the visual grid:</p>
         <code>.grid {          
   background: url('data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" width="{{lineHeight * 2}}" height="{{lineHeight * 2}}" version="1.1"&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:0.3;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight - fontSize - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight * 2 - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:0.3;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight + lineHeight - fontSize - 1}}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;stroke:none" width="1" height="{{ lineHeight * 2 }}" x="0" y="0" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;stroke:none" width="1" height="{{ lineHeight * 2 }}" x="{{ lineHeight }}" y="0" /&gt;&lt;/svg&gt;');
 }</code>
@@ -542,6 +562,6 @@ c;g?a.$watch(g,function(a,c){e.$set("value",a);a!==c&&k.removeOption(c);k.addOpt
 identity:ma,isUndefined:w,isDefined:y,isString:B,isFunction:H,isObject:L,isNumber:Qa,isElement:gc,isArray:E,version:jd,isDate:na,lowercase:z,uppercase:la,callbacks:{counter:0}});sa=lc(P);try{sa("ngLocale")}catch(c){sa("ngLocale",[]).provider("$locale",$c)}sa("ng",["ngLocale"],["$provide",function(a){a.provider("$compile",Db).directive({a:kd,input:cc,textarea:cc,form:ld,script:Td,select:Vd,style:Xd,option:Wd,ngBind:wd,ngBindHtmlUnsafe:yd,ngBindTemplate:xd,ngClass:zd,ngClassEven:Bd,ngClassOdd:Ad,ngCsp:Ed,
 ngCloak:Cd,ngController:Dd,ngForm:md,ngHide:Md,ngInclude:Gd,ngInit:Hd,ngNonBindable:Id,ngPluralize:Jd,ngRepeat:Kd,ngShow:Ld,ngSubmit:Fd,ngStyle:Nd,ngSwitch:Od,ngSwitchWhen:Pd,ngSwitchDefault:Qd,ngOptions:Ud,ngView:Sd,ngTransclude:Rd,ngModel:rd,ngList:td,ngChange:sd,required:dc,ngRequired:dc,ngValue:vd}).directive(lb).directive(ec);a.provider({$anchorScroll:uc,$browser:wc,$cacheFactory:xc,$controller:Cc,$document:Dc,$exceptionHandler:Ec,$filter:Rb,$interpolate:Fc,$http:Wc,$httpBackend:Xc,$location:Jc,
 $log:Kc,$parse:Oc,$route:Rc,$routeParams:Sc,$rootScope:Tc,$q:Pc,$sniffer:Uc,$templateCache:yc,$timeout:ad,$window:Vc})}])})(Ya);u(T).ready(function(){jc(T,rb)})})(window,document);angular.element(document).find("head").append('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\\:form{display:block;}</style>');</script>
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,300italic,100,100italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:900,400,400italic,700,300italic,100,100italic' rel='stylesheet' type='text/css'>
   </body>
 </html>
