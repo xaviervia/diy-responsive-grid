@@ -339,69 +339,6 @@
   </head>
 
   <body ng-controller="Calculator">
-    <div class="inner">
-      <h1>The DIY Responsive Grid Calculator</h1>
-      <fieldset>
-        <legend>Font size / Line height <em>(in pixels)</em></legend>
-        <form>
-          <input type="number" ng-change="updateFontSize()" ng-model="fontSizeBase" placeholder="Font size (in pixels)" autofocus />
-          <span>/</span>
-          <input type="number" ng-change="updateLineHeight()" ng-model="lineHeightBase" placeholder="Line height (in pixels)"/>
-        </form>
-        <aside ng-show="ratio">
-          <span>Ratio:</span> <mark>{{ratio}}</mark>
-          <button ng-class="ratioLocked" ng-click="lock()">
-            <img ng-hide="isLocked"
-              src='data:image/svg+xml,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 71 100" enable-background="new 0 0 71 100" xml:space="preserve"><path d="M65.5,45V30c0-16.542-13.458-30-30-30s-30,13.458-30,30v15H0v55h71V45H65.5z M13.5,30c0-12.131,9.869-22,22-22 s22,9.869,22,22v15h-44V30z"></path></svg>' />
-            <img ng-show="isLocked"
-              src='data:image/svg+xml,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 71 100" enable-background="new 0 0 71 100" xml:space="preserve"><path d="M65.5,45V30c0-16.542-13.458-30-30-30s-30,13.458-30,30v15H0v55h71V45H65.5z M13.5,30c0-12.131,9.869-22,22-22 s22,9.869,22,22v15h-44V30z" fill="#FFFFFF"></path></svg>' />
-            {{ratioLocked}}
-          </button>
-        </aside> 
-        <div class="clearfix"></div>     
-      </fieldset>
-
-      <section ng-show="breakpoints">
-        <h3>Possible breakpoints</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Media Query</th>
-              <th>Container Width</th>
-              <th>1 Column</th>
-              <th>2 Columns</th>
-              <th>3 Columns</th>
-              <th>4 Columns</th>
-            </tr>
-          </thead>
-          <tbody>          
-            <tr ng-repeat="breakpoint in breakpoints">
-              <td>{{breakpoint.mediaQuery}}px</td>
-              <td>{{breakpoint.containerWidth}}rem</td>
-              <td>{{breakpoint.columns[0]}}</td>
-              <td>{{breakpoint.columns[1]}}</td>
-              <td>{{breakpoint.columns[2]}}</td>
-              <td>{{breakpoint.columns[3]}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section ng-show="enabled">
-        <h3>Grid background</h3>
-
-        <p>Copy this code into your CSS to get the visual grid:</p>
-        <code>.grid {          
-  background: url('data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" width="{{lineHeight * 2}}" height="{{lineHeight * 2}}" version="1.1"&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:0.3;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight - fontSize - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight * 2 - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:0.3;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight + lineHeight - fontSize - 1}}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;stroke:none" width="1" height="{{ lineHeight * 2 }}" x="0" y="0" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;stroke:none" width="1" height="{{ lineHeight * 2 }}" x="{{ lineHeight }}" y="0" /&gt;&lt;/svg&gt;');
-}</code>
-      </section>
-
-      <footer ng-show="enabled">
-        Made by <a href="http://southlogics.com">SouthLogics</a> in Argentina
-      </footer>
-    </div>
-
-
     <script type="text/javascript">
 /* AngularJS v1.0.7 (c) 2010-2012 Google, Inc. http://angularjs.org License: MIT */
 (function(P,T,q){'use strict';function m(b,a,c){var d;if(b)if(H(b))for(d in b)d!="prototype"&&d!="length"&&d!="name"&&b.hasOwnProperty(d)&&a.call(c,b[d],d);else if(b.forEach&&b.forEach!==m)b.forEach(a,c);else if(!b||typeof b.length!=="number"?0:typeof b.hasOwnProperty!="function"&&typeof b.constructor!="function"||b instanceof K||ca&&b instanceof ca||wa.call(b)!=="[object Object]"||typeof b.callee==="function")for(d=0;d<b.length;d++)a.call(c,b[d],d);else for(d in b)b.hasOwnProperty(d)&&a.call(c,b[d],
@@ -562,6 +499,67 @@ c;g?a.$watch(g,function(a,c){e.$set("value",a);a!==c&&k.removeOption(c);k.addOpt
 identity:ma,isUndefined:w,isDefined:y,isString:B,isFunction:H,isObject:L,isNumber:Qa,isElement:gc,isArray:E,version:jd,isDate:na,lowercase:z,uppercase:la,callbacks:{counter:0}});sa=lc(P);try{sa("ngLocale")}catch(c){sa("ngLocale",[]).provider("$locale",$c)}sa("ng",["ngLocale"],["$provide",function(a){a.provider("$compile",Db).directive({a:kd,input:cc,textarea:cc,form:ld,script:Td,select:Vd,style:Xd,option:Wd,ngBind:wd,ngBindHtmlUnsafe:yd,ngBindTemplate:xd,ngClass:zd,ngClassEven:Bd,ngClassOdd:Ad,ngCsp:Ed,
 ngCloak:Cd,ngController:Dd,ngForm:md,ngHide:Md,ngInclude:Gd,ngInit:Hd,ngNonBindable:Id,ngPluralize:Jd,ngRepeat:Kd,ngShow:Ld,ngSubmit:Fd,ngStyle:Nd,ngSwitch:Od,ngSwitchWhen:Pd,ngSwitchDefault:Qd,ngOptions:Ud,ngView:Sd,ngTransclude:Rd,ngModel:rd,ngList:td,ngChange:sd,required:dc,ngRequired:dc,ngValue:vd}).directive(lb).directive(ec);a.provider({$anchorScroll:uc,$browser:wc,$cacheFactory:xc,$controller:Cc,$document:Dc,$exceptionHandler:Ec,$filter:Rb,$interpolate:Fc,$http:Wc,$httpBackend:Xc,$location:Jc,
 $log:Kc,$parse:Oc,$route:Rc,$routeParams:Sc,$rootScope:Tc,$q:Pc,$sniffer:Uc,$templateCache:yc,$timeout:ad,$window:Vc})}])})(Ya);u(T).ready(function(){jc(T,rb)})})(window,document);angular.element(document).find("head").append('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\\:form{display:block;}</style>');</script>
+    <div class="inner">
+      <h1>The DIY Responsive Grid Calculator</h1>
+      <fieldset>
+        <legend>Font size / Line height <em>(in pixels)</em></legend>
+        <form>
+          <input type="number" ng-change="updateFontSize()" ng-model="fontSizeBase" autofocus />
+          <span>/</span>
+          <input type="number" ng-change="updateLineHeight()" ng-model="lineHeightBase" />
+        </form>
+        <aside ng-show="ratio">
+          <span>Ratio:</span> <mark>{{ratio}}</mark>
+          <button ng-class="ratioLocked" ng-click="lock()">
+            <img ng-hide="isLocked"
+              src='data:image/svg+xml,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 71 100" enable-background="new 0 0 71 100" xml:space="preserve"><path d="M65.5,45V30c0-16.542-13.458-30-30-30s-30,13.458-30,30v15H0v55h71V45H65.5z M13.5,30c0-12.131,9.869-22,22-22 s22,9.869,22,22v15h-44V30z"></path></svg>' />
+            <img ng-show="isLocked"
+              src='data:image/svg+xml,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 71 100" enable-background="new 0 0 71 100" xml:space="preserve"><path d="M65.5,45V30c0-16.542-13.458-30-30-30s-30,13.458-30,30v15H0v55h71V45H65.5z M13.5,30c0-12.131,9.869-22,22-22 s22,9.869,22,22v15h-44V30z" fill="#FFFFFF"></path></svg>' />
+            {{ratioLocked}}
+          </button>
+        </aside> 
+        <div class="clearfix"></div>     
+      </fieldset>
+
+      <section ng-show="breakpoints">
+        <h3>Possible breakpoints</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Media Query</th>
+              <th>Container Width</th>
+              <th>1 Column</th>
+              <th>2 Columns</th>
+              <th>3 Columns</th>
+              <th>4 Columns</th>
+            </tr>
+          </thead>
+          <tbody>          
+            <tr ng-repeat="breakpoint in breakpoints">
+              <td>{{breakpoint.mediaQuery}}px</td>
+              <td>{{breakpoint.containerWidth}}rem</td>
+              <td>{{breakpoint.columns[0]}}</td>
+              <td>{{breakpoint.columns[1]}}</td>
+              <td>{{breakpoint.columns[2]}}</td>
+              <td>{{breakpoint.columns[3]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section ng-show="enabled">
+        <h3>Grid background</h3>
+
+        <p>Copy this code into your CSS to get the visual grid:</p>
+        <code>.grid {          
+  background: url('data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" width="{{lineHeight * 2}}" height="{{lineHeight * 2}}" version="1.1"&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:0.3;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight - fontSize - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight * 2 - 1 }}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:0.3;" width="{{ lineHeight * 2 }}" height="1" x="0" y="{{ lineHeight + lineHeight - fontSize - 1}}" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;stroke:none" width="1" height="{{ lineHeight * 2 }}" x="0" y="0" /&gt;&lt;rect style="fill:#ff6600;fill-opacity:1;stroke:none" width="1" height="{{ lineHeight * 2 }}" x="{{ lineHeight }}" y="0" /&gt;&lt;/svg&gt;');
+}</code>
+      </section>
+
+      <footer ng-show="enabled">
+        Made by <a href="http://southlogics.com">SouthLogics</a> in Argentina
+      </footer>
+    </div>
   <link href='http://fonts.googleapis.com/css?family=Roboto:900,400,400italic,700,300italic,100,100italic' rel='stylesheet' type='text/css'>
   </body>
 </html>
